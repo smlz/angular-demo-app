@@ -2,14 +2,25 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Testseite</title>
+    <title>Funktionen</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js" charset="utf-8"></script>
     <script src="app.js" charset="utf-8"></script>
   </head>
-  <body>
+  <body style="background: lightgray;">
    <div ng-app="app" ng-controller="namensAnzeigeCtrl as vm">
-     <h1>{{vm.name}}</h1>
-     <button type="button" name="button" ng-click="vm.action()">Action!</button>
+     <h1>Funktionen</h1>
+     f(x) = m·x + b<br>
+     m: <input type="number" ng-model="vm.m" placeholder="m"><br>
+     b: <input type="number" step="any" ng-model="vm.b" placeholder="b"><br>
+     <button type="button" ng-click="vm.go()">Go!</button>
+     <table border=1>
+        <tr><th>x</th><th>f(x)</th></tr>
+        <tr ng-repeat="x in vm.eingabe">
+          <td>{{x}}</td>
+          <td>{{vm.f(x)}}</td>
+        </tr>
+     </table>
+     <canvas id=canvas style="float:left; padding:20px;" width="{{vm.canvasWidth}}" height="{{vm.canvasHeight}}"></canvas>
    </div >
   </body>
 </html>
