@@ -2,18 +2,17 @@
 
 var app = angular.module('app', []);
 
-app.controller('namensAnzeigeCtrl', function () {
+app.controller('controller', function () {
   var vm = this;
-  console.log(vm);
   vm.eingabe = [-3, -2, -1, 0, 1, 2, 3, 4];
   vm.m = 1;
   vm.b = 0;
 
   for (var x of vm.eingabe){
-    console.log(x)
+    //console.log(x)
   }
 
-  vm.f = function (x) { return x; };
+  vm.f = function (x) { return ''; };
 
   var generateLinearFunction = function(m, b) {
     var f = function(x) {
