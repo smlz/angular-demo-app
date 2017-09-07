@@ -39,41 +39,40 @@ app.controller('controller', function () {
     }
   };
 
-  vm.canvasWidth = 300;
+  vm.canvasWidth = 400;
   vm.canvasHeight = 300;
 
   vm.plot = function() {
-        var canvas = document.getElementById("canvas");
-        var ctx = canvas.getContext("2d");
+    var width = vm.canvasWidth,
+        height = vm.canvasHeight,
+        xMin = -4,
+        xMax = 4,
+        yMin = -3,
+        yMax = 3,
+        canvas = document.getElementById("canvas"),
+        ctx = canvas.getContext("2d");
 
-        // Hintergrund zeichnen
-        ctx.fillStyle = "white";
-        ctx.fillRect(0, 0, vm.canvasWidth, vm.canvasWidth);
+      // Hintergrund zeichnen
+      ctx.fillStyle = "white";
+      ctx.fillRect(0, 0, vm.canvasWidth, vm.canvasWidth);
 
-        // Koordinatensystem zeichnen
-        ctx.strokeStyle = 'black';
-        ctx.beginPath();
-        ctx.moveTo(0, vm.canvasWidth/2);
-        ctx.lineTo(vm.canvasWidth, vm.canvasWidth/2);
-        // FIXME: y-Achse zeichnen
-        ctx.stroke();
+      // Koordinatensystem zeichnen
+      ctx.strokeStyle = 'black';
+      ctx.beginPath();
+      ctx.moveTo(0, height/2);
+      ctx.lineTo(width, height/2);
+      // FIXME: y-Achse zeichnen
+      ctx.stroke();
 
-        // Graph der Funktion Zeichnen
-        ctx.strokeStyle = "blue";
-        ctx.beginPath();
-        var xWidth = vm.canvasWidth,
-            yWidth = vm.canvasHeight,
-            xMin = -2,
-            xMax = 2,
-            yMin = -2,
-            yMax = 2;
+      // Graph der Funktion Zeichnen
+      ctx.strokeStyle = "blue";
+      ctx.beginPath();
 
-        for (var i = 0; i < xWidth; i++) {
-            var x = i / xWidth * (xMax - xMin)  + xMin;
-            var y = x; // FIXME: hier sollte der y-Wert mit der Funktion berechete werden
-            ctx.lineTo(i, ((-y) - yMin) / (yMax - yMin) * yWidth);
-        }
-        ctx.stroke();
-    };
-
+      for (var i = 0; i < width; i++) {
+          var x = i / width * (xMax - xMin)  + xMin;
+          var y = x; // FIXME: hier sollte der y-Wert mit der Funktion berechete werden
+          ctx.lineTo(i, ((-y) - yMin) / (yMax - yMin) * height);
+      }
+      ctx.stroke();
+  };
 });
