@@ -25,7 +25,14 @@
      </table>
 
      <canvas id="canvas" width="{{vm.canvasWidth}}" height="{{vm.canvasHeight}}"></canvas>
-
+     <table>
+       <tr>
+         <th>key</th><th>val</th>
+       </tr>
+       <tr ng-repeat="(key, val) in vm">
+         <td>{{key}}</td><td>{{val}}</td>
+       </tr>
+     </table>
    </div >
   </body>
 </html>
