@@ -2,7 +2,7 @@
 
 var app = angular.module('app', []);
 
-app.controller('controller', function () {
+app.controller('controller', function ($scope) {
   var vm = this;
   vm.eingabe = [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1,
                   0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10];
@@ -41,14 +41,18 @@ app.controller('controller', function () {
 
   vm.canvasWidth = 400;
   vm.canvasHeight = 300;
+  vm.xMin = -4;
+  vm.xMax = 4;
+  vm.yMin = -3;
+  vm.yMax = 3;
 
   vm.plot = function() {
     var width = vm.canvasWidth,
         height = vm.canvasHeight,
-        xMin = -4,
-        xMax = 4,
-        yMin = -3,
-        yMax = 3,
+        xMin = vm.xMin,
+        xMax = vm.xMax,
+        yMin = vm.yMin,
+        yMax = vm.yMax,
         canvas = document.getElementById("canvas"),
         ctx = canvas.getContext("2d");
 
@@ -75,4 +79,18 @@ app.controller('controller', function () {
       }
       ctx.stroke();
   };
+  var zoom = function(a) {
+    var a = Math.pow(1.5, a/3);
+    vm.xMin *= a;
+    vm.xMax *= a;
+    vm.yMin *= a;
+    vm.yMax *= a;
+    vm.plot();
+    $scope.$digest();
+  }
+  document.getElementById('canvas').addEventListener('wheel', function(e) {
+    zoom(e.deltaY);
+    e.preventDefault();
+    return false;
+  }, false);
 });
