@@ -19,7 +19,7 @@
         <tr><th>x</th><th>f(x)</th></tr>
         <tr ng-repeat="x in vm.eingabe">
           <td>{{x}}</td>
-          <td>{{vm.f(x)}}</td>
+          <td style="background-color: {{vm.calculateColor(vm.f(x))}}">{{vm.f(x)}}&nbsp; </td>
         </tr>
      </table>
    </div >
