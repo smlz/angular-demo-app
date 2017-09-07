@@ -2,20 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Funktionen</title>
+    <title>Lineare Funktionen</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js" charset="utf-8"></script>
     <script src="app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
    <div ng-app="app" ng-controller="controller as vm">
-     <h1>Funktionen</h1>
+     <h1>Lineare Funktionen</h1>
      <h3>f(x) = m·x + b</h3>
      <p>
        m: <input type="number" step="any" ng-model="vm.m">
        b: <input type="number" step="any" ng-model="vm.b">
        <button ng-click="vm.go()">Go!</button>
      </p>
-     <table border=1>
+     <table>
         <tr><th>x</th><th>f(x)</th></tr>
         <tr ng-repeat="x in vm.eingabe">
           <td>{{x}}</td>
