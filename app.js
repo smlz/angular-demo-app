@@ -8,20 +8,9 @@ app.controller('controller', function ($scope) {
                  0,  1,  2,  3,  4,  5,  6,  7,  8,  9];
   vm.m = 1;
   vm.b = 0;
+  vm.f = function (x) { return vm.m * x + vm.b; };
 
-  vm.f = function (x) { return ''; };
 
-  var generateLinearFunction = function(m, b) {
-    var f = function(x) {
-      return m * x + b;
-    };
-    return f;
-  }
-
-  vm.go = function() {
-    vm.f = generateLinearFunction(vm.m, vm.b);
-    vm.plot();
-  };
 
   vm.calculateColor = function(y) {
     // Deckungsgrad (Zahl zwischen 0.0 und 1.0)
@@ -81,6 +70,10 @@ app.controller('controller', function ($scope) {
       }
       ctx.stroke();
   };
+  vm.watch('m', function(a, b, c) {setTimeout(vm.plot, 0); return c;});
+  vm.watch('b', function(a, b, c) {setTimeout(vm.plot, 0); return c;});
+  setTimeout(vm.plot, 0);
+
   var zoom = function(a) {
     var a = Math.pow(1.5, a/3);
     vm.xMin *= a;
