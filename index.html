@@ -10,7 +10,7 @@
   <body>
    <div ng-app="app" ng-controller="controller as vm">
      <h1>Lineare Funktionen</h1>
-     <h3>f(x) = m·x + b</h3>
+     <h3>f(x) = m·x + b = {{vm.printableF()}}</h3>
      <p>
        m: <input type="number" step="0.1" ng-model="vm.m">
        b: <input type="number" step="any" ng-model="vm.b">

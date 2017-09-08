@@ -11,7 +11,29 @@ app.controller('controller', function ($scope) {
   vm.b = 0;
   vm.f = function (x) { return vm.m * x + vm.b; };
 
+  vm.printableF = function() {
+    var str = '';
+    if (vm.m == 0) {
+      str = '';
+    } else if (vm.m == 1) {
+      str = 'x';
+    } else {
+      str = '' + Math.round(vm.m * 100) / 100 + '·x';
+    }
 
+    if (str == '') {
+      return '' + vm.b;
+    }
+    if (vm.b == 0) {
+      return str;
+    }
+    if (vm.b > 0) {
+      return str + ' + ' + vm.b;
+    }
+    if (vm.b < 0) {
+      return str + ' - ' + Math.abs(vm.b);
+    }
+  }
 
   vm.calculateColor = function(y) {
     // Deckungsgrad (Zahl zwischen 0.0 und 1.0)
