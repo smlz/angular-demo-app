@@ -29,12 +29,12 @@ app.controller('controller', function ($scope) {
     }
   };
 
-  vm.canvasWidth = 400;
-  vm.canvasHeight = 300;
-  vm.xMin = -4;
-  vm.xMax = 4;
-  vm.yMin = -3;
-  vm.yMax = 3;
+  vm.canvasWidth = 500;
+  vm.canvasHeight = 400;
+  vm.xMin = -5;
+  vm.xMax = 5;
+  vm.yMin = -4;
+  vm.yMax = 4;
 
   vm.plot = function() {
     var width = vm.canvasWidth,
