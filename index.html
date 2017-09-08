@@ -25,13 +25,15 @@
 
      <canvas id="canvas" width="{{vm.canvasWidth}}" height="{{vm.canvasHeight}}"></canvas>
      <table>
-       <caption>Debug data:</caption>
-       <tr>
-         <th>key</th><th>val</th>
-       </tr>
-       <tr ng-repeat="(key, val) in vm">
-         <td>{{key}}</td><td>{{val}}</td>
-       </tr>
+       <caption>Debug data: <a ng-click="vm.debug = !vm.debug">{{vm.debug ? '▼': '▶'}}</a></caption>
+       <tbody ng-show="vm.debug">
+         <tr>
+           <th>key</th><th>val</th>
+         </tr>
+         <tr ng-repeat="(key, val) in vm">
+           <td>{{key}}</td><td>{{val}}</td>
+         </tr>
+       </tbody>
      </table>
    </div >
   </body>

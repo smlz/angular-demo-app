@@ -6,6 +6,7 @@ app.controller('controller', function ($scope) {
   var vm = this;
   vm.eingabe = [-9, -8, -7, -6, -5, -4, -3, -2, -1,
                  0,  1,  2,  3,  4,  5,  6,  7,  8,  9];
+  vm.debug = false;
   vm.m = 1;
   vm.b = 0;
   vm.f = function (x) { return vm.m * x + vm.b; };

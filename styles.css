@@ -28,6 +28,10 @@ table.data td:first-child, table.data th:first-child {
 table caption {
   text-align: left;
   font-weight: bold;
+  white-space: nowrap;
+}
+table caption a {
+  cursor: pointer;
 }
 
 canvas {
