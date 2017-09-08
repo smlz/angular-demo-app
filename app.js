@@ -17,9 +17,10 @@ app.controller('controller', function ($scope) {
     };
     return f;
   }
-  // FIXME: irgendwo muss noch die vm.plot-Funktion aufgerufen werden
+
   vm.go = function() {
     vm.f = generateLinearFunction(vm.m, vm.b);
+    vm.plot();
   };
 
   vm.calculateColor = function(y) {
@@ -65,7 +66,8 @@ app.controller('controller', function ($scope) {
       ctx.beginPath();
       ctx.moveTo(0, height/2);
       ctx.lineTo(width, height/2);
-      // FIXME: y-Achse zeichnen
+      ctx.moveTo(width/2, height);
+      ctx.lineTo(width/2, 0);
       ctx.stroke();
 
       // Graph der Funktion Zeichnen
@@ -74,7 +76,7 @@ app.controller('controller', function ($scope) {
 
       for (var i = 0; i < width; i++) {
           var x = i / width * (xMax - xMin)  + xMin;
-          var y = x; // FIXME: hier sollte der y-Wert mit der Funktion berechete werden
+          var y = vm.f(x);
           ctx.lineTo(i, ((-y) - yMin) / (yMax - yMin) * height);
       }
       ctx.stroke();
