@@ -8,11 +8,26 @@ table, table td, table th {
 }
 
 td, th {
-  padding: 3px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   max-width: 300px;
+}
+
+table.data td, table.data th {
+  max-width: 50px;
+  width: 50px;
+  font-size: 15px;
+  text-align: right;
+  padding: 0 2px;
+}
+table.data td:first-child, table.data th:first-child {
+  width: 30px;
+}
+
+table caption {
+  text-align: left;
+  font-weight: bold;
 }
 
 canvas {
