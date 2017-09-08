@@ -28,11 +28,11 @@ app.controller('controller', function ($scope) {
     var val = Math.min(1.0, Math.abs(y) / 100);
 
     if (y < 0) {
-      // Negative Zahlen werden rot
-      return "rgba(255, 0, 0, " + val + ")";
-    } else if (y > 0) {
-      // Positive Zahlen werden blau
+      // Negative Zahlen werden blau
       return "rgba(0, 0, 255, " + val + ")";
+    } else if (y > 0) {
+      // Positive Zahlen werden rot
+      return "rgba(255, 0, 0, " + val + ")";
     } else {
       // Null ist weiss
       return "white";
