@@ -11,6 +11,23 @@ app.controller('controller', function ($scope) {
   vm.f = function (x) { return vm.m * x + vm.b; };
 
 
+  vm. prettyFunc = function(m, b) {
+    return "" + m + "x + " + b;
+  }
+
+  var prettyFuncTestData = [
+    {m: 2, b: 1, result: "2x + 1"},
+    {m: 1, b: 0, result: "x"},
+    {m: 0, b: -1, result: "-1"},
+    {m: 2, b: -1, result: "2x - 1"},
+    {m: 0, b: 0, result: "0"}
+  ];
+
+  for (var data of prettyFuncTestData) {
+    if (vm.prettyFunc(data.m, data.b) !== data.result) {
+      console.warn("prettyFunc(" + data.m + ", " + data.b + ") != " + data.result)
+    }
+  }
 
   vm.calculateColor = function(y) {
     // Deckungsgrad (Zahl zwischen 0.0 und 1.0)
